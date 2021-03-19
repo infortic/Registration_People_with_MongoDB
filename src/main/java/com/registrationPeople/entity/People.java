@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,12 +21,16 @@ public class People implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@NotBlank
 	private String id;
 	private String status;
+	@NotBlank
 	private String givenName;
 	private String familiyName;
 	private Date birthDate;
+	@NotBlank
 	private Address address;
+	@NotBlank
 	private List<Phones> phones;
 	
 	
