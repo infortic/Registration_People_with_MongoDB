@@ -1,32 +1,17 @@
-version: "3"
+version: "2"
 services:
-  db:
-    image: postgres:9.6
-    container_name: "bancoDeDados"
+  web:
+    container_name: "API Person"
     networks:
       backend:
          ipv4_address: 10.9.0.5
-    restart: always
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: "trust"
-      POSTGRES_USER: "postgres"
-      POSTGRES_DB: "recrutamento"
-    ports:
-      - "5432:5432"
-  web:
-    container_name: "back-end"
-    networks:
-      backend:
-         ipv4_address: 10.9.0.4
     image: app
     build:
        context: .
        dockerfile: dockerFile
     restart: always
     ports:
-      - "8084:8084"
-    depends_on:
-      - db
+      - "5041:5041"
 networks:
   backend:
     ipam:

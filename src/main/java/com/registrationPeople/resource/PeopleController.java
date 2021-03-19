@@ -41,8 +41,10 @@ public class PeopleController {
 	
 	@ApiOperation(value="creat or update people")
 	@PostMapping
-	public ResponseEntity<?> pesquisar(@RequestBody People people) throws ParseException {
-		return new ResponseEntity<>(peopleService.create(people), HttpStatus.OK);
+	public ResponseEntity<?> creatPeople(@RequestBody People people) throws ParseException {
+		return new ResponseEntity<>(peopleService.createPeople(people), HttpStatus.CREATED);
 	}
+	
+
 	
 }

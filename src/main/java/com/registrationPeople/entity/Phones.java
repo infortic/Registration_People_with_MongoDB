@@ -14,5 +14,13 @@ public class Phones implements Serializable {
 	@Id
 	private String id;
 	private Integer phoneNumber;
+	
+	public Phones(String id, Integer phoneNumber) {
+		super();
+		this.id = id;
+		this.phoneNumber = phoneNumber;
+	}
 
+	
+	
 }

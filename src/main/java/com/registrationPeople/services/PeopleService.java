@@ -9,6 +9,8 @@ public interface PeopleService {
 	
 	public People getPeopleByCode(String id);
 	
-	public People create(People people);
+	public People createPeople(People people);
+	
+	public String deletePeople(People people);
 	
 }

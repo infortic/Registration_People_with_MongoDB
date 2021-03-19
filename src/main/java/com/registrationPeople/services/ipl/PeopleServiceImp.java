@@ -9,12 +9,14 @@ import com.registrationPeople.entity.People;
 import com.registrationPeople.repository.PessoaRepository;
 import com.registrationPeople.services.PeopleService;
 
+import net.bytebuddy.asm.Advice.Return;
+
 @Service
-public class PeopleServiceImp implements PeopleService{
+public class PeopleServiceImp implements PeopleService {
 
 	@Autowired
 	private PessoaRepository dao;
-	
+
 	@Override
 	public List<People> getAllPeople() {
 		return this.dao.findAll();
@@ -22,14 +24,24 @@ public class PeopleServiceImp implements PeopleService{
 
 	@Override
 	public People getPeopleByCode(String id) {
-		return this.dao
-				.findById(id)
+		return this.dao.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Não existe pessoa com este código: " + id));
 	}
 
 	@Override
-	public People create(People people) {
+	public People createPeople(People people) {
 		return this.dao.save(people);
+	}
+
+	@Override
+	public String deletePeople(People people) {
+
+		try {
+			this.dao.delete(people);
+			return "Registro Removido";
+		} catch (Exception e) {
+			return "Erro: "+ e;
+		}
 	}
 
 }
