@@ -15,6 +15,10 @@ import com.registrationPeople.services.RestService;
 @Service
 public class PeopleServiceImp implements RestService{
 
+	private static final String MSG_CODIGO_NOT_FOUD = "There is no person with this code: ";
+	private static final String MSG_REGISTRO_REMOVIDO = "Record Removed";
+	
+	
 	@Autowired
 	private PessoaRepository dao;
 
@@ -26,7 +30,7 @@ public class PeopleServiceImp implements RestService{
 	@Override
 	public People getByCode(String id) {
 		return this.dao.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Não existe pessoa com este código: " + id));
+				.orElseThrow(() -> new IllegalArgumentException(MSG_CODIGO_NOT_FOUD + id));
 	}
 
 	@Override
@@ -38,9 +42,9 @@ public class PeopleServiceImp implements RestService{
 	public String delete(People people) {
 		try {
 			this.dao.delete(people);
-			return "Registro Removido";
+			return MSG_REGISTRO_REMOVIDO;
 		} catch (Exception e) {
-			return "Erro: "+ e;
+			return "Err: "+ e;
 		}
 	}
 
