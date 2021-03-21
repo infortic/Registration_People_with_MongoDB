@@ -1,18 +1,14 @@
 package com.registrationPeople.services.ipl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.registrationPeople.entity.People;
 import com.registrationPeople.repository.PessoaRepository;
-import com.registrationPeople.services.PeopleService;
-
-import net.bytebuddy.asm.Advice.Return;
+import com.registrationPeople.services.RestService;
 
 @Service
-public class PeopleServiceImp implements PeopleService {
+public class PeopleServiceImp implements RestService{
 
 	@Autowired
 	private PessoaRepository dao;
@@ -35,7 +31,6 @@ public class PeopleServiceImp implements PeopleService {
 
 	@Override
 	public String delete(People people) {
-
 		try {
 			this.dao.delete(people);
 			return "Registro Removido";

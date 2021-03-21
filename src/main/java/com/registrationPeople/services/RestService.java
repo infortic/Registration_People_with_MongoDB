@@ -3,7 +3,7 @@ package com.registrationPeople.services;
 import java.util.List;
 import com.registrationPeople.entity.People;
 
-public interface PeopleService {
+public interface RestService {
 	
 	public List<People> getAll();
 	

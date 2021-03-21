@@ -14,6 +14,13 @@ API for maintenance of people using, spring validation, springData, MongoDB.
 
 ### Step by step
 
+use the following instruction to make a copy of the project: <br/>
+`git clone https://github.com/infortic/Registration_People_with_MongoDB.git`
+
+
+it is possible to use the docker to upload an image of the application, it will be accessible through port 5041. It is possible to use the swagger client through the url:<br/> `http: // localhost: 5041 / swagger-ui.html`
+
+
 ### 1 - Install  o MongoDB:
 
 Installing MongoDB on windows is quite intuitive but if you have any questions, this article can be consulted: https://netovieiraleo.medium.com/instalando-e-configurando-o-mongodb-no-windows-b1d4e1e58911 <br/><br/>
