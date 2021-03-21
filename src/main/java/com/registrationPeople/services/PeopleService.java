@@ -5,12 +5,12 @@ import com.registrationPeople.entity.People;
 
 public interface PeopleService {
 	
-	public List<People> getAllPeople();
+	public List<People> getAll();
 	
-	public People getPeopleByCode(String id);
+	public People getByCode(String id);
 	
-	public People createPeople(People people);
+	public People create(People people);
 	
-	public String deletePeople(People people);
+	public String delete(People people);
 	
 }

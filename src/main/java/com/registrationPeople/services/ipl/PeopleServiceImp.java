@@ -18,23 +18,23 @@ public class PeopleServiceImp implements PeopleService {
 	private PessoaRepository dao;
 
 	@Override
-	public List<People> getAllPeople() {
+	public List<People> getAll() {
 		return this.dao.findAll();
 	}
 
 	@Override
-	public People getPeopleByCode(String id) {
+	public People getByCode(String id) {
 		return this.dao.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Não existe pessoa com este código: " + id));
 	}
 
 	@Override
-	public People createPeople(People people) {
+	public People create(People people) {
 		return this.dao.save(people);
 	}
 
 	@Override
-	public String deletePeople(People people) {
+	public String delete(People people) {
 
 		try {
 			this.dao.delete(people);

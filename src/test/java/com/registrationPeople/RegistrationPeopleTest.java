@@ -75,7 +75,7 @@ public class RegistrationPeopleTest {
 				.address(address)
 				.builder();
 		
-		this.peopleService.createPeople(people);
+		this.peopleService.create(people);
 		
 		ResponseEntity<?> response = this.restTemplet.getForEntity("/people/1212", String.class);
 		Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
@@ -85,7 +85,7 @@ public class RegistrationPeopleTest {
 		
 		Assertions.assertThat(peopleResponse.getId()).isEqualTo("1212");
 		
-		this.peopleService.deletePeople(people);
+		this.peopleService.delete(people);
 		
 	}
 	
@@ -126,4 +126,35 @@ public class RegistrationPeopleTest {
 		Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(201);
 		
 	}
+	
+	@Test
+	void deletePeople200Test() {
+		
+		Phones phones = PhoneBuilder
+				.getInstance()
+				.id("1515")
+				.phoneNumber(12112)
+				.builder();
+		
+		Address address = AddressBuilder
+				.getInstance()
+				.id("951")
+				.city("Cidade dos Anjos")
+				.builder();
+		
+		List<Phones> phonesList = new ArrayList<>(); 
+		phonesList.add(phones);
+				
+		People people = PeopleBuilder
+				.getInstance()
+				.id("666")
+				.phones(phonesList)
+				.address(address)
+				.builder();
+	
+		this.restTemplet.delete("/people", people);
+		
+		
+	}
+
 }

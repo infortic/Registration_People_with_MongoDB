@@ -30,21 +30,24 @@ public class PeopleController {
 	@ApiOperation(value="Find All People")
 	@GetMapping
 	public ResponseEntity<?> getAll() {
-		return new ResponseEntity<>(peopleService.getAllPeople() , HttpStatus.OK);
+		return new ResponseEntity<>(peopleService.getAll() , HttpStatus.OK);
 	}
 	
 	@ApiOperation(value="Find People by ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<?> pesquisar(@PathVariable(required = true) String id) throws ParseException {
-		return new ResponseEntity<>(peopleService.getPeopleByCode(id), HttpStatus.OK);
+		return new ResponseEntity<>(peopleService.getByCode(id), HttpStatus.OK);
 	}
 	
 	@ApiOperation(value="creat or update people")
 	@PostMapping
-	public ResponseEntity<?> creatPeople(@RequestBody People people) throws ParseException {
-		return new ResponseEntity<>(peopleService.createPeople(people), HttpStatus.CREATED);
+	public ResponseEntity<?> creat(@RequestBody People people) throws ParseException {
+		return new ResponseEntity<>(peopleService.create(people), HttpStatus.CREATED);
 	}
 	
-
-	
+	@ApiOperation(value="Delete people")
+	@RequestMapping(method = RequestMethod.DELETE)
+	public ResponseEntity<?> delete(@RequestBody People people) throws ParseException {
+		return new ResponseEntity<>(peopleService.delete(people), HttpStatus.CREATED);
+	}
 }
