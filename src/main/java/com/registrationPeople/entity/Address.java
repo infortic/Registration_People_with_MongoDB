@@ -5,6 +5,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
+/*	
+* Author: Cleiton Silva
+* created in: 2021/03/20
+* */
+
 @Data
 @Document
 public class Address implements Serializable {

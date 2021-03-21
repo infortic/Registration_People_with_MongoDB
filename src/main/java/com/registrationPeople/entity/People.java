@@ -14,6 +14,11 @@ import com.google.gson.Gson;
 
 import lombok.Data;
 
+/*	
+* Author: Cleiton Silva
+* created in: 2021/03/20
+* */
+
 @Data
 @Document
 public class People implements Serializable {

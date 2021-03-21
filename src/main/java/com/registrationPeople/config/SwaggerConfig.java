@@ -12,6 +12,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import static springfox.documentation.builders.PathSelectors.regex;
 import java.util.ArrayList;
 
+  /*	
+* Author: Cleiton Silva
+* created in: 2021/03/20
+* */
+
+
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

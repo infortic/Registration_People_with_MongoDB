@@ -7,6 +7,11 @@ import com.registrationPeople.entity.People;
 import com.registrationPeople.repository.PessoaRepository;
 import com.registrationPeople.services.RestService;
 
+   /*	
+ * Author: Cleiton Silva
+ * created in: 2021/03/20
+ * */
+
 @Service
 public class PeopleServiceImp implements RestService{
 

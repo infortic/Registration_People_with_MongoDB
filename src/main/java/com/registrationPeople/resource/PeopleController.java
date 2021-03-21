@@ -18,6 +18,11 @@ import com.registrationPeople.entity.People;
 import com.registrationPeople.services.ipl.PeopleServiceImp;
 import io.swagger.annotations.ApiOperation;
 
+  /*	
+* Author: Cleiton Silva
+* created in: 2021/03/20
+* */
+
 @SuppressWarnings("unused")
 @RestController
 @RequestMapping("/people")
