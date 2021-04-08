@@ -50,45 +50,7 @@ public class RegistrationPeopleTest {
 		Assertions.assertThat(response.getBody()).isNotNull();
 	}
 	
-	@Test
-	void getPeopleByAssertCode200Test() {
-		
-		Phones phones = PhoneBuilder
-				.getInstance()
-				.id("12")
-				.phoneNumber(12112)
-				.builder();
-		
-		Address address = AddressBuilder
-				.getInstance()
-				.id("121")
-				.city("Cidade dos Anjos")
-				.builder();
-		
-		List<Phones> phonesList = new ArrayList<>(); 
-		phonesList.add(phones);
-				
-		People people = PeopleBuilder
-				.getInstance()
-				.id("1212")
-				.phones(phonesList)
-				.address(address)
-				.builder();
-		
-		this.peopleService.create(people);
-		
-		ResponseEntity<?> response = this.restTemplet.getForEntity("/people/1212", String.class);
-		Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
-		Assertions.assertThat(response.getBody()).isNotNull();
-		
-		People peopleResponse = People.peopleFromJson(response.getBody().toString());
-		
-		Assertions.assertThat(peopleResponse.getId()).isEqualTo("1212");
-		
-		this.peopleService.delete(people);
-		
-	}
-	
+
 
 	@Test
 	void getPeopleByErroCode500Test() {
